@@ -1,0 +1,10 @@
+PUT YOUR LOGO FILE IN THIS FOLDER
+==================================
+
+Accepted formats: logo.png  logo.svg  logo.jpg  logo.webp
+
+After copying your logo here:
+  1. Open: client/src/components/VisionLogo.jsx
+  2. Uncomment the import line matching your file extension
+  3. Delete the line: const logoSrc = null
+  4. Save — logo appears everywhere automatically
