@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const ROOT_URL = 'https://vision-oa-production.up.railway.app'
+export const ROOT_URL = 'https://mcq-navy.vercel.app'
 
 const api = axios.create({
   baseURL: `${ROOT_URL}/api`,
