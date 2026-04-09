@@ -24,6 +24,7 @@ const ensureDatabaseConnection = async () => {
   return dbReadyPromise
 }
 
+
 const corsOptions = {
   origin: true,
   credentials: false,

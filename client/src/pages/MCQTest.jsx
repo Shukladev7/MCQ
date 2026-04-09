@@ -172,10 +172,13 @@ export default function MCQTest() {
         const count = tabWarnings.current
         try { await api.post('/admin/notify/tab-violation', { userId: user?.id, count }) } catch {}
 
-        if (count >= 1) {
+        if (count>=3) {
           toast.error('Tab switch or unfocus detected. You have been disqualified and the test submitted.', { duration: 6000 })
           autoSubmitRef.current = true
           setTimeout(() => doSubmit(true), 2000)
+        }
+        else if(count<3&&count>0){
+          toast.error(count+' Tab switch or unfocus detected .', { duration: 6000 })
         }
       }
     }
