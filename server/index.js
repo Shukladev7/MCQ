@@ -24,28 +24,9 @@ const ensureDatabaseConnection = async () => {
   return dbReadyPromise
 }
 
-const defaultAllowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  'https://vision-oa.vercel.app'
-]
-
-const allowedOrigins = [
-  ...defaultAllowedOrigins,
-  ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []),
-  ...(process.env.CORS_ORIGINS
-    ? process.env.CORS_ORIGINS.split(',').map((o) => o.trim()).filter(Boolean)
-    : [])
-]
-
 const corsOptions = {
-  origin(origin, callback) {
-    // Allow non-browser clients and same-origin calls with no Origin header.
-    if (!origin) return callback(null, true)
-    if (allowedOrigins.includes(origin)) return callback(null, true)
-    return callback(new Error(`CORS blocked for origin: ${origin}`))
-  },
-  credentials: true,
+  origin: true,
+  credentials: false,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }
